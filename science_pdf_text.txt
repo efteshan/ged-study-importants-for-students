@@ -1,0 +1,50 @@
+1. Identify the independent variable in an experiment testing plant growth with different fertilizers.
+2. Identify the dependent variable in an experiment measuring temperature over time.
+3. What is a control group and why is it important?
+4. Which fertilizer produced the greatest plant height based on a given graph? (concept)
+5. Which part of the cell produces energy?
+6. What is the function of DNA?
+7. Describe photosynthesis.
+8. Compare photosynthesis and respiration.
+9. What is natural selection?
+10. Why do organisms with helpful traits survive better?
+11. Identify producer, consumer, decomposer in a food chain.
+12. How does energy flow in an ecosystem?
+13. What is the main function of mitochondria?
+14. What is a mutation?
+15. How are traits inherited?
+16. What is kinetic energy?
+17. What is potential energy?
+18. If force increases and mass stays constant, what happens to acceleration?
+19. State Newton's First Law.
+20. State Newton's Second Law.
+21. Which has more kinetic energy: a 2 kg ball at 4 m/s or 1 kg ball at 7 m/s?
+22. What is voltage?
+23. What is current?
+24. What is resistance?
+25. Describe conduction, convection, radiation.
+26. What causes seasons on Earth?
+27. What causes climate change?
+28. Identify evaporation, condensation, precipitation.
+29. What is the greenhouse effect?
+30. Explain the rock cycle.
+31. What is a sedimentary rock?
+32. What is an igneous rock?
+33. What is metamorphism?
+34. Identify an acid vs base on pH scale.
+35. What is density?
+36. Calculate density if mass = 20 g and volume = 4 cm³.
+37. What is the water cycle?
+38. What is renewable energy?
+39. What is nonrenewable energy?
+40. Identify evidence of plate tectonics.
+41. What causes earthquakes?
+42. What causes tides?
+43. What is gravity?
+44. What does a line graph show better than a bar graph?
+45. Interpret a pie chart showing population distribution. (concept)
+46. What does it mean if a conclusion is unsupported by data?
+47. What is the purpose of repeating a scientific experiment?
+48. Identify a hypothesis.
+49. Identify an example of a controlled variable.
+50. Describe how to improve the reliability of an experiment.

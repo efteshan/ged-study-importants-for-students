@@ -60,6 +60,23 @@ SUBJECTS = {
             "Economics": "ss-economics",
             "Geography & Global Issues": "ss-geography",
         }
+    },
+    "rla": {
+        "title": "Reading & Language Arts",
+        "prd": os.path.join(SCRIPT_DIR, 'GED_RLA_content.md'),
+        "overview": os.path.join(SCRIPT_DIR, 'rla_pdf_text.txt'),
+        "categories": {
+            "Absolute Words": [1,2,3,4,5,6,7,8,9,10],
+            "Emotional Language": [11,12,13,14,15,16,17,18,19,20],
+            "Unsupported Comparisons": [21,22,23,24,25,26,27,28,29,30],
+            "Half-Right, All-Wrong": [31,32,33,34,35,36,37,38,39,40],
+        },
+        "cat_ids": {
+            "Absolute Words": "rla-absolute",
+            "Emotional Language": "rla-emotional",
+            "Unsupported Comparisons": "rla-comparisons",
+            "Half-Right, All-Wrong": "rla-halfright",
+        }
     }
 }
 
@@ -85,7 +102,7 @@ def md_to_html_body(body):
     practice_count = 0
     while i < len(lines):
         line = lines[i].strip()
-        if line.startswith('### 💡 Core Concept') or line.startswith('### 💡 Core Science Concept') or line.startswith('### 💡 Core Social Studies Concept'):
+        if line.startswith('### 💡 Core Concept') or line.startswith('### 💡 Core Science Concept') or line.startswith('### 💡 Core Social Studies Concept') or line.startswith('### 💡 Core RLA Concept'):
             i += 1
             concept_lines = []
             while i < len(lines) and not lines[i].strip().startswith('### '):
@@ -106,7 +123,7 @@ def md_to_html_body(body):
                     m_img = re.match(r'!\[(.*?)\]\((.*?)\)', sline)
                     if m_img:
                         html_parts.append(f'<img src="{m_img.group(2)}" alt="{m_img.group(1)}" class="content-img">')
-                elif sline.startswith('* **Step') or sline.startswith('* **Final Answer') or sline.startswith('- **Key Process') or sline.startswith('- **Why it matters') or sline.startswith('- **Formula Used') or sline.startswith('- **Step-by-Step') or sline.startswith('- **Final Answer') or sline.startswith('* **Historical Background') or sline.startswith('* **Why It Matters Today') or sline.startswith('* **Key Definition') or sline.startswith('* **How to Read'):
+                elif sline.startswith('* **Step') or sline.startswith('* **Final Answer') or sline.startswith('- **Key Process') or sline.startswith('- **Why it matters') or sline.startswith('- **Formula Used') or sline.startswith('- **Step-by-Step') or sline.startswith('- **Final Answer') or sline.startswith('* **Historical Background') or sline.startswith('* **Why It Matters Today') or sline.startswith('* **Key Definition') or sline.startswith('* **How to Read') or sline.startswith('* **Strategy Reminder'):
                     html_parts.append(bold_to_strong(f'<p class="step-item">{sline[2:]}</p>'))
                 elif sline.startswith('$$') and sline.endswith('$$'):
                     html_parts.append(f'<p class="math-display">{sline}</p>')
@@ -182,7 +199,7 @@ def build_html():
         cat_panes.append(f'''<div id="cat-{subj_key}-overview" class="cat-pane active">
 <div class="container">
 <div class="overview-section">
-<div class="section-header"><span class="section-number">OVERVIEW</span><h2>50 Most Important {subj_data["title"]} Questions</h2></div>
+<div class="section-header"><span class="section-number">OVERVIEW</span><h2>{len([q for cat_qs in subj_data["categories"].values() for q in cat_qs])} Most Important {subj_data["title"]} Questions</h2></div>
 <ol class="overview-list">{overview_items}</ol>
 </div></div></div>''')
 
@@ -237,8 +254,8 @@ def build_html():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GED Study Guide - Math, Science & Social Studies</title>
-<meta name="description" content="Master the most important GED questions with step-by-step solutions, explanations, and interactive practice problems.">
+<title>GED Study Guide - Math, Science, Social Studies & RLA</title>
+<meta name="description" content="Master the most important GED questions in Math, Science, Social Studies and Reading & Language Arts with step-by-step solutions, explanations, and interactive practice problems.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -370,6 +387,7 @@ ul.content-list li::before{{content:'\\2022';position:absolute;left:0;color:var(
 <button class="master-tab active" data-subject="math">Math</button>
 <button class="master-tab" data-subject="science">Science</button>
 <button class="master-tab" data-subject="social_studies">Social Studies</button>
+<button class="master-tab" data-subject="rla">Language Arts</button>
 </div>
 <div class="top-nav-right"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="toggle-icon toggle-moon">🌙</span><span class="toggle-icon toggle-sun">☀️</span></button></div>
 </div>
@@ -377,6 +395,7 @@ ul.content-list li::before{{content:'\\2022';position:absolute;left:0;color:var(
 {subject_htmls["math"]}
 {subject_htmls["science"]}
 {subject_htmls["social_studies"]}
+{subject_htmls["rla"]}
 
 <!-- Formula Modal -->
 <div class="formula-modal" id="formulaModal">

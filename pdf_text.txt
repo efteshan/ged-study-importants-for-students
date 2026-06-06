@@ -1,0 +1,50 @@
+1. Solve: $3x - 5 = 16$
+2. Solve: $5x + 12 = 3x + 40$
+3. Solve: $7 - 2x = 19$
+4. Solve the inequality: $4x - 3 > 13$
+5. Find the slope between $(2, 4)$ and $(6, 12)$.
+6. Find the slope of a line passing through $(-3, 5)$ and $(1, -7)$.
+7. Write an equation for a taxi that charges $\$5$ plus $\$0.50$ per km.
+8. Graph interpretation: Which line has the greater slope?
+9. Evaluate: $3a^2 - 4a$ when $a = -2$.
+10. Substitute: If $x = 3$, find $2x^2 + 5x - 4$.
+11. A shirt costs $\$40$, discount $25\%$. What is the sale price?
+12. A worker earns $\$12/\text{hr}$ and works $38$ hours. Gross pay?
+13. A rectangle is $8\text{ cm}$ by $3\text{ cm}$. Find area.
+14. A rectangle is $8\text{ cm}$ by $3\text{ cm}$. Find perimeter.
+15. Circle with $r = 7\text{ cm}$. Find area.
+16. Triangle with base $10\text{ cm}$ and height $6\text{ cm}$. Find area.
+17. A cylinder has radius $4\text{ cm}$ and height $10\text{ cm}$. Find volume.
+18. What is the perimeter of a square with side $9\text{ cm}$?
+19. Convert $3/4$ to a decimal.
+20. Convert $0.6$ to a fraction.
+21. Ratio: $3\text{ hours} \rightarrow 180\text{ miles}$. How far in $5\text{ hours}$?
+22. Increase $80$ by $15\%$.
+23. Decrease $200$ by $30\%$.
+24. Solve proportion: $x / 5 = 12 / 15$.
+25. A bag has $4$ red, $6$ blue marbles. Probability of red?
+26. Identify if the table represents a linear relationship.
+27. Plot $(3, -2)$ on coordinate plane (concept question).
+28. What is the slope of $y = 2x - 7$?
+29. What is the y-intercept of $y = -3x + 9$?
+30. Solve: $2(x - 4) = 3(x + 2)$.
+31. Solve: $5/8 = x/24$.
+32. Find median of: $3, 7, 9, 15, 19$.
+33. Find mean of: $2, 5, 8, 10$.
+34. Find mode of: $4, 2, 4, 6, 4, 8$.
+35. Graph reading: Identify the highest bar (concept).
+36. Estimate square root: $\sqrt{50}$.
+37. Simplify: $\sqrt{81}$.
+38. Simplify: $(3x)(4x^2)$.
+39. Simplify: $5(x - 3) + 2x$.
+40. Factor: $x^2 - 9$.
+41. Factor: $x^2 + 5x$.
+42. System of equations concept: Which point satisfies both equations?
+43. Translate: "5 more than twice a number".
+44. Unit rate: $240\text{ miles}$ in $4\text{ hours}$.
+45. Find simple interest: $P=1000$, $r=5\%$, $t=2\text{ years}$.
+46. Identify function from mapping diagram (concept).
+47. Solve: $|x - 7| = 3$.
+48. Scientific notation: Write $45000$.
+49. Scientific notation: Write $0.0032$.
+50. Percent to decimal: $18\%$.
