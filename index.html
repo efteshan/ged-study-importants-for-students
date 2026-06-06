@@ -794,7 +794,12 @@
 
         @media(max-width:640px) {
             .top-level-nav {
-                padding: 8px 12px
+                padding: 8px 8px;
+                gap: 8px
+            }
+
+            .top-nav-left {
+                gap: 6px
             }
 
             .master-tab {
@@ -861,17 +866,76 @@
                 height: 70vh;
                 min-height: 400px
             }
+
+            /* Shrink theme toggle for mobile */
+            .theme-toggle {
+                width: 44px;
+                height: 24px
+            }
+
+            .theme-toggle::after {
+                width: 18px;
+                height: 18px;
+                top: 3px;
+                left: 3px
+            }
+
+            [data-theme="light"] .theme-toggle::after {
+                transform: translateX(20px)
+            }
+
+            .toggle-icon {
+                font-size: 0.65rem
+            }
+
+            .toggle-moon {
+                left: 4px
+            }
+
+            .toggle-sun {
+                right: 3px
+            }
         }
 
         @media(max-width:380px) {
+            .top-level-nav {
+                padding: 6px 4px;
+                gap: 4px
+            }
+
+            .top-nav-left {
+                gap: 4px
+            }
+
             .master-tab {
-                font-size: 0.72rem;
-                padding: 5px 10px
+                font-size: 0.65rem;
+                padding: 4px 6px
             }
 
             .cat-btn {
                 font-size: 0.65rem;
                 padding: 6px 8px
+            }
+
+            /* Ultra-compact theme toggle */
+            .theme-toggle {
+                width: 38px;
+                height: 20px
+            }
+
+            .theme-toggle::after {
+                width: 14px;
+                height: 14px;
+                top: 3px;
+                left: 3px
+            }
+
+            [data-theme="light"] .theme-toggle::after {
+                transform: translateX(18px)
+            }
+
+            .toggle-icon {
+                font-size: 0.55rem
             }
         }
     </style>
