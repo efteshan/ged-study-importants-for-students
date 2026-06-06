@@ -237,7 +237,50 @@ def build_html():
         
         display_style = 'block' if subj_key == 'math' else 'none'
         
-        subject_htmls[subj_key] = f'''
+        if subj_key == 'rla':
+            # RLA gets a nested sub-tab layout
+            subject_htmls[subj_key] = f'''
+<!-- SUBJECT CONTAINER: RLA (Nested Tabs) -->
+<div id="subject-rla" class="subject-container" style="display: {display_style};">
+
+<!-- RLA Level-2 Sub-Tabs -->
+<div class="rla-subnav-wrapper">
+<button class="rla-main-tab active" data-rla-target="rla-poe">Process Of Elimination</button>
+<button class="rla-main-tab" data-rla-target="rla-ques">Question types</button>
+<button class="rla-main-tab" data-rla-target="rla-essay">Essay Template</button>
+</div>
+
+<!-- PANE 1: Process Of Elimination -->
+<div id="rla-poe" class="rla-main-pane active">
+<div class="cat-nav-wrapper">
+<button class="cat-scroll-btn" onclick="this.nextElementSibling.scrollBy({{left:-200,behavior:'smooth'}})">&lsaquo;</button>
+<nav class="cat-nav" id="catNav-rla">{cat_btns_html}</nav>
+<button class="cat-scroll-btn" onclick="this.previousElementSibling.scrollBy({{left:200,behavior:'smooth'}})">&rsaquo;</button>
+</div>
+{cat_panes_html}
+</div>
+
+<!-- PANE 2: Question types -->
+<div id="rla-ques" class="rla-main-pane">
+<div class="rla-coming-soon">
+<div class="rla-coming-soon-icon">&#128679;</div>
+<div class="rla-coming-soon-text">Coming Soon</div>
+<div class="rla-coming-soon-sub">New question types will appear here.</div>
+</div>
+</div>
+
+<!-- PANE 3: Essay Template -->
+<div id="rla-essay" class="rla-main-pane">
+<div class="rla-pdf-fallback">
+<a href="MASTER TEMPLATE FOR RLA ARGUMENTATIVE ESSAY.pdf" target="_blank">&#128196; Open PDF in New Tab (For Mobile Devices)</a>
+</div>
+<iframe class="pdf-container" src="MASTER TEMPLATE FOR RLA ARGUMENTATIVE ESSAY.pdf" title="GED RLA Argumentative Essay Template"></iframe>
+</div>
+
+</div>
+'''
+        else:
+            subject_htmls[subj_key] = f'''
 <!-- SUBJECT CONTAINER: {subj_key.upper()} -->
 <div id="subject-{subj_key}" class="subject-container" style="display: {display_style};">
 <div class="cat-nav-wrapper">
@@ -359,6 +402,21 @@ ul.content-list li::before{{content:'\\2022';position:absolute;left:0;color:var(
 .formula-close{{position:sticky;top:0;float:right;margin-right:-18px;margin-top:-10px;width:36px;height:36px;border-radius:50%;background:#ef4444;border:none;color:#fff;font-size:1.2rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);transition:transform 0.2s;z-index:10}}
 .formula-close:hover{{transform:scale(1.1)}}
 @keyframes fadeIn{{from{{opacity:0;transform:translateY(5px)}}to{{opacity:1;transform:translateY(0)}}}}
+/* === RLA SUB-TABS === */
+.rla-subnav-wrapper{{display:flex;justify-content:center;gap:10px;padding:16px 20px;background:var(--bg-secondary);border-bottom:1px solid var(--border);flex-wrap:wrap}}
+.rla-main-tab{{background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);padding:10px 22px;border-radius:6px;cursor:pointer;font-weight:600;font-family:inherit;font-size:0.88rem;transition:all var(--transition-speed)}}
+.rla-main-tab:hover{{color:var(--text-primary);background:var(--bg-code)}}
+.rla-main-tab.active{{background:var(--accent);color:var(--bg-primary);border-color:var(--accent)}}
+.rla-main-pane{{display:none;animation:fadeIn 0.3s ease-in-out}}
+.rla-main-pane.active{{display:block}}
+.rla-coming-soon{{text-align:center;padding:80px 20px}}
+.rla-coming-soon-icon{{font-size:3rem;margin-bottom:16px;opacity:0.4}}
+.rla-coming-soon-text{{font-size:1.2rem;font-weight:600;color:var(--text-muted);margin-bottom:8px}}
+.rla-coming-soon-sub{{font-size:0.85rem;color:var(--text-muted);opacity:0.6}}
+.pdf-container{{width:100%;height:85vh;min-height:600px;border:none;display:block}}
+.rla-pdf-fallback{{padding:10px 20px;background:var(--bg-code);text-align:center;border-bottom:1px solid var(--border);font-size:0.85rem}}
+.rla-pdf-fallback a{{color:var(--accent);font-weight:600;text-decoration:none}}
+.rla-pdf-fallback a:hover{{text-decoration:underline}}
 @media(max-width:640px){{
 .top-level-nav{{padding:8px 12px}}
 .master-tab{{font-size:0.8rem;padding:6px 14px}}
@@ -373,6 +431,8 @@ ul.content-list li::before{{content:'\\2022';position:absolute;left:0;color:var(
 .tab-btn{{padding:10px 14px;font-size:0.8rem}}
 .formula-modal-inner{{max-width:95vw}}
 .formula-close{{width:30px;height:30px;font-size:1rem;margin-right:-8px}}
+.rla-main-tab{{font-size:0.78rem;padding:8px 14px}}
+.pdf-container{{height:70vh;min-height:400px}}
 }}
 @media(max-width:380px){{
 .master-tab{{font-size:0.72rem;padding:5px 10px}}
@@ -454,6 +514,18 @@ document.querySelectorAll('.tab-btn').forEach(btn => {{
         parentPane.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
         document.getElementById(paneId).classList.add('active');
         btn.scrollIntoView({{behavior:'smooth', block:'nearest', inline:'center'}});
+    }});
+}});
+
+// RLA Main Sub-Tab Logic
+document.querySelectorAll('.rla-main-tab').forEach(btn => {{
+    btn.addEventListener('click', () => {{
+        const wrapper = btn.closest('.subject-container');
+        wrapper.querySelectorAll('.rla-main-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const targetId = btn.getAttribute('data-rla-target');
+        wrapper.querySelectorAll('.rla-main-pane').forEach(p => p.classList.remove('active'));
+        document.getElementById(targetId).classList.add('active');
     }});
 }});
 </script>
